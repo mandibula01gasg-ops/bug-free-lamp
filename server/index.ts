@@ -628,8 +628,8 @@ app.post("/api/admin/upload-image", requireAuth, upload.single("image"), (req, r
       return res.status(400).json({ error: "Nenhuma imagem enviada" });
     }
 
-    const imageUrl = `/attached_assets/product_images/${req.file.filename}`;
-    res.json({ url: imageUrl });
+    const imagePath = `/attached_assets/product_images/${req.file.filename}`;
+    res.json({ imagePath });
   } catch (error) {
     console.error("Error uploading image:", error);
     res.status(500).json({ error: "Erro ao fazer upload da imagem" });
@@ -642,8 +642,8 @@ app.post("/api/admin/upload-review-image", requireAuth, reviewUpload.single("ima
       return res.status(400).json({ error: "Nenhuma imagem enviada" });
     }
 
-    const imageUrl = `/attached_assets/reviews/${req.file.filename}`;
-    res.json({ url: imageUrl });
+    const imagePath = `/attached_assets/reviews/${req.file.filename}`;
+    res.json({ imagePath });
   } catch (error) {
     console.error("Error uploading review image:", error);
     res.status(500).json({ error: "Erro ao fazer upload da imagem" });
